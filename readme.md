@@ -121,24 +121,24 @@ Here, we clean up the dataset in order to do exploratory data analysis. We repla
 ### 4. Exploratory Data Analysis and Data Visualization
 
 In this section, we worked with the data to find trends and relations to our target variable, sale price.
-- Ordinal features
--- Convert catagorical features that were ordinal in nature in ordinal features
-- Pearson's Correlation
--- Drop features with low correlation to sale price
-- Multicollinearity
--- Dropping features with high correlation to another feature
-- Train Dataset Null Values
--- Imputing Null Values for train dataset
-- Scatterplot
--- To check for outliers
-- Histogram
--- To see distribution of each numerical feature
-- Boxplot
--- To see if there is any relationship between catagorical feature with target variable
-- Matching features between train and test set
-- -Test Dataset Null Values
--- Impute Null Values for Test Dataset
-- Get Dummies
+1. Ordinal features
+    - Convert catagorical features that were ordinal in nature in ordinal features
+2. Pearson's Correlation
+    - Drop features with low correlation to sale price
+3. Multicollinearity
+    - Dropping features with high correlation to another feature
+4. Train Dataset Null Values
+    - Imputing Null Values for train dataset
+5. Scatterplot
+    - To check for outliers
+6. Histogram
+    - To see distribution of each numerical feature
+7. Boxplot
+    - To see if there is any relationship between catagorical feature with target variable
+8. Matching features between train and test set
+9. Test Dataset Null Values
+    - Impute Null Values for Test Dataset
+10. Get Dummies
 
 ### 5. Train and Score Models
 
