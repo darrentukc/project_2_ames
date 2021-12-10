@@ -14,11 +14,10 @@ We will be using the train.csv dataset to train our model. The features inside t
 1. [Datasets Used](#1-Datasets-Used)
 2. [Data Dictionary](#2.-Data-Dictionary)
 3. [Cleaning Train Dataset](#3.-Cleaning-Train-Dataset)
-4. [Exploratory Data Analysis](#4.-Exploratory-Data-Analysis)
-5. [Data Visualization](#5.-Data-Visualization)
-6. [Cleaning Test Dataset](#6.-Cleaning-Test_Dataset)
-7. [Conclusions](#7.-Conclusions)
-8. [References](#8-References)
+4. [Exploratory Data Analysis and Data Visualization](#4.-Exploratory-Data-Analysis)
+5. [Train and Score Models](#5.-Cleaning-Test_Dataset)
+6. [Conclusions](#6.-Conclusions)
+7. [References](#7-References)
 
 
 ### 1. Datasets Used :
@@ -117,48 +116,50 @@ The below is a data dictionary containing all the data features, type and its de
 
 ### 3. Cleaning Train Dataset
 
-Here, we clean up the dataset in order to do exploratory data analysis. We replaced all spaces in column names to underscore and all caps to lower case. We then converted ordinal features into int64 and replace all NaN values with appropriate values.
+Here, we clean up the dataset in order to do exploratory data analysis. We replaced all spaces in column names to underscore and all caps to lower case and converted year columns to age.
 
-### 4. Exploratory Data Analysis
+### 4. Exploratory Data Analysis and Data Visualization
 
-In this section, we worked with the data to find trends and relations to our target variable, sale price. We used Pearson's correlation to see which features have a correlation of more than 0.2 and less than -0.2. We then removed the other features that do not have a significant correlation.
+In this section, we worked with the data to find trends and relations to our target variable, sale price.
+- Ordinal features
+-- Convert catagorical features that were ordinal in nature in ordinal features
+- Pearson's Correlation
+-- Drop features with low correlation to sale price
+- Multicollinearity
+-- Dropping features with high correlation to another feature
+- Train Dataset Null Values
+-- Imputing Null Values for train dataset
+- Scatterplot
+-- To check for outliers
+- Histogram
+-- To see distribution of each numerical feature
+- Boxplot
+-- To see if there is any relationship between catagorical feature with target variable
+- Matching features between train and test set
+- -Test Dataset Null Values
+-- Impute Null Values for Test Dataset
+- Get Dummies
 
-### 5. Data Visualization
+### 5. Train and Score Models
 
-In this section, plotting of different type of diagrams were used to study and visual the trend data more. The following are the different methods used:
+Here, we trained and scored 3 models to see how well the models were able to predict the sale price.
 
-###### Scatter plotting
-- Sale price vs every feature that was not dropped during EDA.
-This is to see whether there are any outliers, and manually removed them.
+We trained the model with train test split and scored the model with our hold out set and the test.csv, which was totally unseen by our model.
 
-##### Histogram
-- Each feature that was not dropped during EDA.
-This is to see the distribution of data, whether it is normally distributed. We discovered that sale price is right skewed. Further transformations will be down below.
-
-##### Box plotting
-- Sale price vs every feature that was not dropped during EDA
-While plotting the box plots, we observed some relations between some features with the sale price, ie, ms_zoning, neighborhood etc.
-
-### 6. Cleaning Test Dataset
-
-Here we clean the test data set in order to use the data for prediction. We imputed all NaNs following the train dataset above except for the NaN in electrical, where we imputed the mode.
-
-Once done, we then dummified all catagorical columns in train and test, and matched the datasets together by dropping columns that were not common.
-
-### 7. Conclusions
+### 6. Conclusions
 
 We conclude that using Linear Regression with Lasso will give the best result, as it will zero out features that are low in coefficients. In the scoring of our models, ( Linear Regression, Ridge, Lasso), lasso and ridge both had good scores and were close to each other. However, lasso edged out a little with slightly higher metrics and spread, which will result in models with a higher predicted accuracy, which is an important point for our model to solve the problem statement.
 
 We also found that the features that affect the sale price the most in a positive way are:
-- above grade living area square feet ( gr_liv_area ),
-- overall material and finish quality ( overall_qual ),
-- square feet of finished basement ( bsmtfin_sf_1 ),
-- total square feet of basement area ( total_bsmt_sf ) and
-- heating quality and condition ( heating_qc ).
+- gr_living_area ( above grade living area square feet )
+- overall_qual ( overall material and finish quality )
+- functional_typ ( home functionality rating: house with typical functionality )
+- functional_min1 ( home functionality rating: house with minor deductions 1)
+- functional_min2 ( home functionality rating : house with deductions 2)
 
-We are able to predict the sale price of a house given its features with a spread of about $21,000. In this way, buyers, sellers and real estate agents are able to make the best decision in their favor.
+We are able to predict the sale price of a house given its features with an error of about $20,000. In this way, buyers, sellers and real estate agents are able to make the best decision in their favor.
 
-### 8. References
+### 7. References
 
 ###### kaggle
 
