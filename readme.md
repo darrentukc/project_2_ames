@@ -1,13 +1,22 @@
 ## Problem Statement
 
-There are many variables that determine how much a home can fetch.
+##### What we plan to do
 
-Using the Ames (IA) dataset (train.csv, test.csv), we want to find out which variables matter for home sale prices and produce accurate sale price predictions for interested parties, ie sellers, buyers and real estate agents. This will allow them to make informed choices that are in their interest.
+There are are many variables that determine how much a home can fetch.
+Using the Ames (IA) housing data ( from 2006 to 2010 ), we want to find out which variables matter for home sale prices and produce accurate sale price predictions.
 
-## Executive Summary
+##### What models will we be exploring
 
-We will be using the train.csv dataset to train our model. The features inside the dataset will train our model to find the relationship between certain features with the sale price. Once the model is trained. Once the model is trained, it will then be used to predict sale prices using the data in the test set. After which, the predicted results will be uploaded to kaggle to see how it performs on data that is unknown.
+We will be focusing our project on supervised machine learning models, in particular, linear models and regularization.
 
+##### How will success be evaluated?
+
+The success of our models will be determined by the highest R2 and lowest RMSE scores. This will represent the accuracy and the margin or error of our models. Using these scores, we aim to create a model that will outperform the baseline model that we have identified.
+
+##### Is the scope of the project appropriate? Who are our important stakeholders and why is this important to investigate?
+
+This model will provide the Outside View, helping to reduce information asymmetry between potential home buyers, sellers and real estate agents.<br><br>
+An Inside View involves making a prediction based on knowledge that the predictor already has, (eg insider news for stocks and shares), while an Outside View prediction ignores these details and makes an estimation based on a class of rougly similar previous cases. This is to cut out any bias that may exist.
 
 ## Contents:
 
@@ -146,18 +155,54 @@ Here, we trained and scored 3 models to see how well the models were able to pre
 
 We trained the model with train test split and scored the model with our hold out set and the test.csv, which was totally unseen by our model.
 
+We found that using Linear Regression with Lasso will give the best result, as it will zero out features that are low in coefficients. In the scoring of our models, ( Linear Regression, Ridge, Lasso), lasso and ridge both had good scores and were close to each other. However, lasso edged out a little with slightly higher metrics and spread, which will result in models with a higher predicted accuracy, which is an important point for our model to solve the problem statement.
+
+
 ### 6. Conclusions
 
-We conclude that using Linear Regression with Lasso will give the best result, as it will zero out features that are low in coefficients. In the scoring of our models, ( Linear Regression, Ridge, Lasso), lasso and ridge both had good scores and were close to each other. However, lasso edged out a little with slightly higher metrics and spread, which will result in models with a higher predicted accuracy, which is an important point for our model to solve the problem statement.
+Based on previously similar cases (2006 to 2010 Ames housing data), we are able to predict the sale price of a house given its features with an error of about $20,000, allowing buyers, sellers and realtors to get an outside view of the market rate of a house without bias.<br>
+Recalling our problem statement: 'There are many variables that determine how much a home can fetch, and there is traditionally a lot of information asymmetry between buyers, sellers and realtors.
+<br>
+Our lasso regression model zeros out features that do not impact the saleprice.
 
 We also found that the features that affect the sale price the most in a positive way are:
-- gr_living_area ( above grade living area square feet )
-- overall_qual ( overall material and finish quality )
-- functional_typ ( home functionality rating: house with typical functionality )
-- functional_min1 ( home functionality rating: house with minor deductions 1)
-- functional_min2 ( home functionality rating : house with deductions 2)
 
-We are able to predict the sale price of a house given its features with an error of about $20,000. In this way, buyers, sellers and real estate agents are able to make the best decision in their favor.
+- gr_living_area ( above grade living area square feet )
+ - The larger the above ground living area, the higher the saleprice
+- overall_qual ( overall material and finish quality )
+ - The better the material and finish of a house, the higher the saleprice
+- functional_typ ( home functionality rating: house with typical functionality )
+ - Functions of rooms are working as expected (eg, toilet with working sink and show, rooms with windows that are in working condition etc)
+- functional_min1 ( home functionality rating: house with minor deductions 1)
+ - Functions of rooms are working as expected, except for some very minor issues
+- functional_min2 ( home functionality rating : house with deductions 2)
+ - Functions of rooms are working as expected, except for some issues
+
+ Features that affect the sale price negatively are:<br>
+
+- reno_age ( number of years since last renovation )
+ - Houses with a low reno age usually hints that it is in newer and better condition
+- house_age ( age of the house )
+ - The older the house, the lower the saleprice
+- neighborhood_MeadowV ( Physical locations within Ames city limits: Meadow Village )
+ - The closer the house is to Meadow Village, the lower the saleprice
+- ms_zoning_c (  Identifies the general zoning classification of the sale: Commercial )
+ - Sale of house for commercial purposes will bring a lower saleprice
+- paved_drive_N ( Paved driveway: Dirt or gravel )
+ - Houses without paved driveway will fetch a lower saleprice compared to a house with a paved driveway.
+
+##### Limitations of Model
+
+Every model has its limitations:
+- Geographical constraints: The dataset is restricted to Ames, a city in Iowa with a relatively small population
+- The dataset contains data from 2006 to 2010. Trends and demands may have changed since then.
+- The model is able to predict well for homes within the range of 100k to 300k, as that is where the majority of the data is.
+- Other features suchs as amenities / educational institutions could better train the model.
+- Level of crime rates for different neighborhoods may also affect saleprice.<br><br>
+
+##### Future Improvements
+
+In future, this model can be further improved by introducing some potentially impactful features mentioned above, and adding data from neighboring cities. Doing so will expand the coverage of the model and allows the identification of trends between cities.
 
 ### 7. References
 
