@@ -1,3 +1,11 @@
+<img src="http://imgur.com/1ZcRyrc.png" style="float: left; margin: 20px; height: 55px">
+
+# Project 2 - Ames Housing Data and Kaggle Challenge
+
+## Background
+
+In this project, we will use the well known Ames housing data (from 2006-10) to create a regression model that can predict the price of houses in Ames, Iowa.
+
 ## Problem Statement
 
 ##### What we plan to do
@@ -181,15 +189,15 @@ We also found that the features that affect the sale price the most in a positiv
  Features that affect the sale price negatively are:<br>
 
 - reno_age ( number of years since last renovation )
- - Houses with a low reno age usually hints that it is in newer and better condition
+  - Houses with a low reno age usually hints that it is in newer and better condition
 - house_age ( age of the house )
- - The older the house, the lower the saleprice
+  - The older the house, the lower the saleprice
 - neighborhood_MeadowV ( Physical locations within Ames city limits: Meadow Village )
- - The closer the house is to Meadow Village, the lower the saleprice
+  - The closer the house is to Meadow Village, the lower the saleprice
 - ms_zoning_c (  Identifies the general zoning classification of the sale: Commercial )
- - Sale of house for commercial purposes will bring a lower saleprice
+  - Sale of house for commercial purposes will bring a lower saleprice
 - paved_drive_N ( Paved driveway: Dirt or gravel )
- - Houses without paved driveway will fetch a lower saleprice compared to a house with a paved driveway.
+  - Houses without paved driveway will fetch a lower saleprice compared to a house with a paved driveway.
 
 ##### Limitations of Model
 
