@@ -176,15 +176,15 @@ Our lasso regression model zeros out features that do not impact the saleprice.
 We also found that the features that affect the sale price the most in a positive way are:
 
 - gr_living_area ( above grade living area square feet )
- - The larger the above ground living area, the higher the saleprice
+  - The larger the above ground living area, the higher the saleprice
 - overall_qual ( overall material and finish quality )
- - The better the material and finish of a house, the higher the saleprice
+  - The better the material and finish of a house, the higher the saleprice
 - functional_typ ( home functionality rating: house with typical functionality )
- - Functions of rooms are working as expected (eg, toilet with working sink and show, rooms with windows that are in working condition etc)
+  - Functions of rooms are working as expected (eg, toilet with working sink and show, rooms with windows that are in working condition etc)
 - functional_min1 ( home functionality rating: house with minor deductions 1)
- - Functions of rooms are working as expected, except for some very minor issues
+  - Functions of rooms are working as expected, except for some very minor issues
 - functional_min2 ( home functionality rating : house with deductions 2)
- - Functions of rooms are working as expected, except for some issues
+  - Functions of rooms are working as expected, except for some issues
 
  Features that affect the sale price negatively are:<br>
 
